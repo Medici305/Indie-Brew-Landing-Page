@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const nav = () => {
   return (
-    <Navbar bg="none" expand="lg" className="border border-dark">
+    <Navbar bg="none" expand="lg" className="py-4">
       <Container>
         <Navbar.Brand href="/">
           <img src={Logo} alt="Brand Logo" />
@@ -17,11 +17,23 @@ const nav = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           ></Nav>
-          <Navbar.Text className="w-75 d-flex justify-content-around">
-            <Link to="/pricing">Pricing</Link>
-            <Link to="/support">Support</Link>
-            <Button variant="primary">
-              Get started - <span className="text-secondary">it's free</span>
+          <Navbar.Text className="d-flex flex-column flex-lg-row justify-content-around align-items-center">
+            <Link
+              to="/pricing"
+              className="text-decoration-none font-weight-bolder"
+              style={{ fontWeight: "600" }}
+            >
+              Pricing
+            </Link>
+            <Link
+              to="/support"
+              className="text-decoration-none font-weight-bolder mx-lg-5 my-5 my-lg-0"
+              style={{ fontWeight: "600" }}
+            >
+              Support
+            </Link>
+            <Button className="px-3 py-2" style={{ background: "#6A4EFC" }}>
+              Get Started <span style={{ color: "#b5b5b5" }}>- it's free</span>
             </Button>
           </Navbar.Text>
         </Navbar.Collapse>
