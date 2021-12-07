@@ -1,24 +1,38 @@
 import React from "react";
 import styled from "styled-components";
-import jumbotron from "../Components/jumbotron";
-import Nav from "../Components/nav";
+import Jumbotron from "../Components/jumbotron";
+import Platforms from "../Components/platforms";
 
 const Home = () => {
   return (
     <HomePage>
-      <Nav />
-      <jumbotron />
+      <Jumbotron />
+      <Platforms />
     </HomePage>
   );
 };
 
 const HomePage = styled.div`
-  min-height: 100vh;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    300deg,
-    rgba(255, 255, 255, 1) 15%,
-    rgba(239, 202, 186, 1) 60%
-  );
+  h1 {
+    font-size: 4.15rem;
+  }
+  p {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+  }
+  h5 {
+    font-size: 1rem;
+    color: #a0a0a0;
+  }
+  button {
+    background: #6a4efc;
+    border-color: #6a4efc;
+  }
+  @media only screen and (max-width: 578px) {
+    h1 {
+      font-size: 3rem;
+      margin-top: 2rem;
+    }
+  }
 `;
 export default Home;
