@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Nav from "./nav";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import styled from "styled-components";
@@ -20,15 +21,18 @@ const jumbotron = () => {
           <Col xs={12} lg={6} className="order-1 order-lg-2">
             <Image src={mockUp} alt="Feed Mockup" />
           </Col>
-          <Col className="order-2 order-lg-1 d-flex flex-column justify-content-center align-items-start">
+          <Col className="order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start">
             <h1 className="mb-3">Your weekly personal feed digest.</h1>
             <p>
               With IndieBrew, get personal feeds from resources all around the
               web, including Reddit, HackerNews, IndieHackers, and much more.
             </p>
-            <Button className="px-3 py-2 mb-4">
-              Get Started <span style={{ color: "#a0a0a0" }}>- it's free</span>
-            </Button>
+            <Link to="/register">
+              <Button className="px-3 py-2 mb-4 mt-3 mt-lg-0">
+                Get Started{" "}
+                <span style={{ color: "#a0a0a0" }}>- it's free</span>
+              </Button>
+            </Link>
             <img className="mb-3" src={Avatars} alt="users avatars" />
             <h5>
               Join{" "}

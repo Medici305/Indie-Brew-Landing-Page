@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const nav = () => {
   return (
-    <Navbar bg="none" expand="lg" className="py-4 mb-3">
+    <Navbar bg="none" expand="lg" className="py-4 py-lg-5 mb-3">
       <Container>
         <Navbar.Brand href="/">
           <img src={Logo} alt="Brand Logo" />
@@ -32,9 +32,12 @@ const nav = () => {
             >
               Support
             </Link>
-            <Button className="px-3 py-2" style={{ background: "#6A4EFC" }}>
-              Get Started <span style={{ color: "#a0a0a0" }}>- it's free</span>
-            </Button>
+            <Link to="/register">
+              <Button className="px-3 py-2">
+                Get Started{" "}
+                <span>- it's free</span>
+              </Button>
+            </Link>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
