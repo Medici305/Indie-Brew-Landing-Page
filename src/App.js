@@ -72,8 +72,14 @@ const App = () => {
             <Home user={user} register={register} logout={logout} name={name} />
           }
         />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/support" element={<Support />} />
+        <Route
+          path="/pricing"
+          element={<Pricing user={user} logout={logout} />}
+        />
+        <Route
+          path="/support"
+          element={<Support user={user} logout={logout} />}
+        />
         <Route
           path="/register"
           element={

@@ -1,8 +1,8 @@
 import React from "react";
+import AltNav from "./altNav";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import bg1 from "../Assets/bg-1.jpeg";
-//import { Link } from "react-router-dom";
 import { Form, Row, Col, Button } from "react-bootstrap";
 
 const Register = ({
@@ -14,15 +14,22 @@ const Register = ({
   logout,
 }) => {
   return (
-    <SignUp>
-      <Row className="shadow-lg w-75">
-        <Col lg={6}>
+    <Section
+      style={{
+        backgroundImage:
+          "linear-gradient( to right bottom,#ffffff,#f8f2f8,#f8e3ea,#f7d5d4,#efcaba)",
+        paddingBottom: "3rem",
+      }}
+    >
+      <AltNav />
+      <Row className="shadow-lg w-75 m-auto">
+        <Col lg={6} className="d-none d-lg-block">
           <Image src={bg1} />
         </Col>
         <Col lg={6} className="bg-white p-5">
-          <Form>
-            <h4>Create your IndieBrew Account</h4>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form className="d-flex flex-column justify-content-around h-100">
+            <h3 className="text-center">Create your IndieBrew Account</h3>
+            <Form.Group controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
@@ -34,7 +41,7 @@ const Register = ({
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicFullName">
+            <Form.Group controlId="formBasicFullName">
               <Form.Label>Full Name</Form.Label>
               <Form.Control
                 type="text"
@@ -46,7 +53,7 @@ const Register = ({
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
@@ -57,51 +64,45 @@ const Register = ({
                 }}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check
-                type="checkbox"
-                label="By creating an account on IndieBrew, you agree to the Terms & Conditions."
-              />
-            </Form.Group>
-            <Button variant="primary" className="w-100 py-3" onClick={register}>
-              {user ? (
-                <div className="spinner-border text-light" role="status">
-                  <span className="sr-only"></span>
-                </div>
-              ) : (
-                "Create an Account"
-              )}
-            </Button>
-            <Link to="/login">
+            <Buttons>
               <Button
                 variant="primary"
-                className="w-100 py-3 mt-3"
-                style={{ background: "white", color: "#6a4efc" }}
+                className="w-100 py-3"
                 onClick={register}
               >
-                Already have an Account?
+                {user ? (
+                  <div className="spinner-border text-light" role="status">
+                    <span className="sr-only"></span>
+                  </div>
+                ) : (
+                  "Create an Account"
+                )}
               </Button>
-            </Link>
+              <Link to="/login">
+                <Button
+                  variant="primary"
+                  className="w-100 py-3 mt-3"
+                  style={{ background: "white", color: "#6a4efc" }}
+                  onClick={register}
+                >
+                  Already have an Account?
+                </Button>
+              </Link>
+            </Buttons>
           </Form>
         </Col>
       </Row>
-    </SignUp>
+    </Section>
   );
 };
-
-const SignUp = styled.div`
+const Section = styled.div`
   min-height: 100vh;
-  background-image: radial-gradient(
-    circle,
-    #ffffff,
-    #f8f2f8,
-    #f8e3ea,
-    #f7d5d4,
-    #efcaba
-  );
-  display: flex;
-  justify-content: center;
-  align-items: center;
+`;
+
+const Buttons = styled.div`
+  @media (max-width: 992px) {
+    margin-top: 2rem;
+  }
 `;
 
 const Image = styled.img`
@@ -109,7 +110,7 @@ const Image = styled.img`
   display: block;
   object-fit: cover;
   width: 100%;
-  height: auto;
+  min-height: 100%;
 `;
 
 export default Register;
