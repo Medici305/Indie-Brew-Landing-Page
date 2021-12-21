@@ -3,9 +3,9 @@ import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import Logo from "../Assets/Logo.svg";
 import { Link } from "react-router-dom";
 
-const nav = () => {
+const nav = ({ user, logout }) => {
   return (
-    <Navbar bg="none" expand="lg" className="py-4 py-lg-5 mb-3">
+    <Navbar bg="none" expand="lg" className="py-3 mb-3">
       <Container>
         <Navbar.Brand href="/">
           <img src={Logo} alt="Brand Logo" />
@@ -32,12 +32,18 @@ const nav = () => {
             >
               Support
             </Link>
-            <Link to="/register">
-              <Button className="px-3 py-2">
-                Get Started{" "}
-                <span>- it's free</span>
+            {user ? (
+              <Button className="px-3 py-2" onClick={logout}>
+                Sign Out
               </Button>
-            </Link>
+            ) : (
+              <Link to="/register">
+                <Button className="px-3 py-2">
+                  Get Started{" "}
+                  <span style={{ color: "#bababa" }}>- it's free</span>
+                </Button>
+              </Link>
+            )}
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

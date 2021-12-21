@@ -6,7 +6,7 @@ import styled from "styled-components";
 import mockUp from "../Assets/Feed Mockup.png";
 import Avatars from "../Assets/User Avatars.svg";
 
-const jumbotron = () => {
+const jumbotron = ({ user, logout, name }) => {
   return (
     <Section
       style={{
@@ -15,7 +15,7 @@ const jumbotron = () => {
         paddingBottom: "3rem",
       }}
     >
-      <Nav />
+      <Nav user={user} logout={logout} />
       <Container>
         <Row style={{ marginBottom: "5rem" }}>
           <Col xs={12} lg={6} className="order-1 order-lg-2">
@@ -27,12 +27,18 @@ const jumbotron = () => {
               With IndieBrew, get personal feeds from resources all around the
               web, including Reddit, HackerNews, IndieHackers, and much more.
             </p>
-            <Link to="/register">
+            {user ? (
               <Button className="px-3 py-2 mb-4 mt-3 mt-lg-0">
-                Get Started{" "}
-                <span style={{ color: "#a0a0a0" }}>- it's free</span>
+                {`Welcome - ${name}`}
               </Button>
-            </Link>
+            ) : (
+              <Link to="/register">
+                <Button className="px-3 py-2 mb-4 mt-3 mt-lg-0">
+                  Get Started{" "}
+                  <span style={{ color: "#bababa" }}>- it's free</span>
+                </Button>
+              </Link>
+            )}
             <img className="mb-3" src={Avatars} alt="users avatars" />
             <h5>
               Join{" "}

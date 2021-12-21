@@ -20,7 +20,7 @@ const platforms = () => {
             We cover all major platforms where one could want to curate their
             feed from. ProductHunt, IndieHackers, and so much more.
           </p>
-          <NewLink to="#">See full list of resources (Arrow)</NewLink>
+          <NewLink to="#">See full list of resources &#8250;</NewLink>
         </Col>
         <Col
           xs={12}
@@ -45,7 +45,7 @@ const platforms = () => {
             With native apps for both IOS and android, accessing your curated
             content has never been easier.
           </p>
-          <NewLink to="#">Sign up for the waitlist (Arrow)</NewLink>
+          <NewLink to="#">Sign up for the waitlist &#8250;</NewLink>
         </Col>
       </Row>
     </Container>
@@ -62,7 +62,8 @@ const NewLink = styled(Link)`
   font-size: 1.2rem;
   font-weight: bold;
   color: #7700ff;
-  &::after {
+  transition: all ease-in-out 0.1s;
+  /* &::after {
     content: "a";
     position: absolute;
     margin-left: 1rem;
@@ -73,7 +74,6 @@ const NewLink = styled(Link)`
     //height: 0.4375rem;
     background-image: url("");
     background-size: contain;
-    transition: transform 0.4s;
-  }
+  } */
 `;
 export default platforms;
